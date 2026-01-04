@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package s1see;
+
+message SignalMessage {
+    // Timestamps
+    int64 ts_capture = 1;      // Unix timestamp (nanoseconds) when captured
+    int64 ts_ingest = 2;       // Unix timestamp (nanoseconds) when ingested
+    
+    // Source identification
+    string source_id = 3;      // Unique identifier for the source
+    enum Direction {
+        UNKNOWN = 0;
+        UPLINK = 1;            // eNB -> MME
+        DOWNLINK = 2;          // MME -> eNB
+    }
+    Direction direction = 4;
+    
+    // Sequence and ordering
+    int64 source_sequence = 5; // Sequence number from source (or generated)
+    
+    // Transport metadata (JSON string or structured)
+    string transport_meta = 6; // e.g., Kafka topic/partition, gRPC stream ID
+    
+    // Payload
+    enum PayloadType {
+        RAW_BYTES = 0;
+        DECODED_TREE = 1;
+        BOTH = 2;
+    }
+    PayloadType payload_type = 7;
+    bytes raw_bytes = 8;       // Raw PDU bytes
+    string decoded_tree = 9;   // Lossless decoded representation (JSON or similar)
+}
+
+

@@ -1,0 +1,41 @@
+# Build artifacts
+build/
+cmake-build-*/
+*.pb.cc
+*.pb.h
+*.grpc.pb.cc
+*.grpc.pb.h
+*.o
+*.a
+*.so
+*.dylib
+
+# Runtime data
+spool_data/
+*.log
+*.idx
+*.db
+*.jsonl
+events.jsonl
+test_pcap_events.jsonl
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Captures
+test_data/
+*.pcap
+*.pcapng
+
+# Test output
+test_output/
+*.pcap.out
+

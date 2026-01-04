@@ -1,0 +1,49 @@
+# S1-SEE Configuration Example
+
+spool:
+  base_dir: "spool_data"
+  num_partitions: 1
+  max_segment_size_mb: 100
+  max_retention_gb: 1
+  max_retention_days: 7
+  fsync_on_append: true
+
+ingest:
+  grpc:
+    listen_address: "0.0.0.0:50051"
+  kafka:
+    brokers: "localhost:9092"
+    topic: "s1ap_pdus"
+    enabled: false
+  amqp:
+    connection_string: "amqp://localhost:5672"
+    queue: "s1ap_pdus"
+    enabled: false
+  nats:
+    servers: "nats://localhost:4222"
+    subject: "s1ap_pdus"
+    enabled: false
+
+processor:
+  consumer_group: "processor"
+  context_expiry_seconds: 300
+  batch_size: 100
+  poll_interval_ms: 100
+
+rulesets:
+  - path: "config/rulesets/mobility.yaml"
+
+sinks:
+  stdout:
+    enabled: true
+  jsonl:
+    enabled: true
+    file: "events.jsonl"
+  kafka:
+    enabled: false
+    brokers: "localhost:9092"
+    topic: "s1_events"
+  grpc:
+    enabled: false
+    endpoint: "localhost:50052"
+

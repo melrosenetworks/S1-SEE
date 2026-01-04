@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package s1see;
+
+import "spool_record.proto";
+
+message Event {
+    string name = 1;                    // Event name, e.g., "Mobility.Handover.Commanded"
+    int64 ts = 2;                       // Event timestamp
+    string subscriber_key = 3;          // Key for subscriber/UE context
+    map<string, string> attributes = 4; // Event-specific attributes
+    double confidence = 5;              // Confidence score (0.0-1.0)
+    EvidenceChain evidence = 6;         // Pointers to spool offsets
+    string ruleset_id = 7;              // Ruleset identifier
+    string ruleset_version = 8;         // Ruleset version
+}
+

@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package s1see;
+
+import "signal_message.proto";
+import "spool_record.proto";
+
+service IngestService {
+    // Streaming ingest: client streams SignalMessages, server streams acks
+    rpc Ingest(stream SignalMessage) returns (stream IngestAck);
+}
+
+message IngestAck {
+    string message_id = 1;      // Client-provided ID or generated
+    int64 sequence = 2;         // Sequence number
+    SpoolOffset spool_offset = 3; // Where it was written
+    bool success = 4;
+    string error_message = 5;
+}
+
+

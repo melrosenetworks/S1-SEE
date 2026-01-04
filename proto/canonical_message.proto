@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package s1see;
+
+message CanonicalMessage {
+    // Reference to spool
+    int32 spool_partition = 1;
+    int64 spool_offset = 2;
+    
+    // Message type and procedure
+    string msg_type = 3;       // e.g., "InitialUEMessage", "HandoverRequest"
+    int32 procedure_code = 4;  // S1AP procedure code
+    
+    // UE identifiers (best effort extraction)
+    int32 mme_ue_s1ap_id = 5;  // MME UE S1AP ID
+    int32 enb_ue_s1ap_id = 6;  // eNB UE S1AP ID
+    string guti = 7;           // Globally Unique Temporary Identifier
+    string imsi = 8;           // International Mobile Subscriber Identity
+    
+    // Cell information - EUTRAN-CGI stored as raw bytes
+    bytes ecgi = 9;             // E-UTRAN Cell Global Identifier (source) - raw bytes
+    bytes target_ecgi = 10;     // Target ECGI (for handovers) - raw bytes
+    
+    // EUTRAN-CGI components (extracted from ecgi bytes)
+    // EUTRAN-CGI ::= SEQUENCE { pLMNidentity PLMNidentity, cell-ID CellIdentity }
+    bytes ecgi_plmn_identity = 24;  // PLMNidentity (3 bytes, TBCD-STRING)
+    bytes ecgi_cell_id = 25;        // CellIdentity (28 bits, BIT STRING) - stored as 4 bytes
+    bytes target_ecgi_plmn_identity = 26;  // Target ECGI PLMNidentity
+    bytes target_ecgi_cell_id = 27;         // Target ECGI CellIdentity
+    
+    // Cause codes
+    int32 cause_code = 11;     // S1AP cause code if present
+    string cause_description = 12;
+    
+    // Bearer information
+    repeated int32 bearer_ids = 13; // E-RAB IDs if present
+    
+    // Decode status
+    bool decode_failed = 14;
+    bytes raw_bytes = 15;      // Preserved raw bytes
+    
+    // Additional structured data (JSON string for flexibility)
+    string decoded_tree = 16;  // Lossless decoded tree representation
+    
+    // Additional UE identifiers
+    string tmsi = 17;              // Temporary Mobile Subscriber Identity
+    string imei = 18;              // International Mobile Equipment Identity
+    
+    // Network element identifiers
+    string enb_id = 19;            // eNodeB identifier (base station ID)
+    string mme_id = 20;             // MME identifier
+    string mme_group_id = 21;       // MME Group ID (from GUTI)
+    string mme_code = 22;           // MME Code (from GUTI)
+    
+    // Source metadata
+    int64 frame_number = 23;        // Frame/packet number from source (e.g., PCAP frame number)
+}
+
