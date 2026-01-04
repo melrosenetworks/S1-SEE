@@ -1,119 +1,201 @@
-<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 800 500">
+  <!-- Generator: Adobe Illustrator 30.1.0, SVG Export Plug-In . SVG Version: 2.1.1 Build 136)  -->
   <defs>
-    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#4a90e2;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#357abd;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#50c878;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3da85a;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ee5a52;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ffa726;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#fb8c00;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="grad5" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ab47bc;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#8e24aa;stop-opacity:1" />
-    </linearGradient>
-  </defs>
-  
-  <!-- Background -->
-  <rect width="800" height="500" fill="#f8f9fa"/>
-  
-  <!-- Title -->
-  <text x="400" y="30" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#2c3e50">S1 Signal Event Engine (S1-SEE)</text>
-  <text x="400" y="55" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#7f8c8d">Multi-Stage Processing Pipeline</text>
-  
-  <!-- Stage 0: Ingress Spooler -->
-  <rect x="50" y="100" width="120" height="80" rx="8" fill="url(#grad1)" stroke="#2c3e50" stroke-width="2"/>
-  <text x="110" y="130" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">Stage 0</text>
-  <text x="110" y="150" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">Ingress</text>
-  <text x="110" y="165" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">Spooler</text>
-  <text x="110" y="195" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#2c3e50">gRPC • Kafka</text>
-  <text x="110" y="210" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#2c3e50">AMQP • NATS</text>
-  
-  <!-- Arrow 0->1 -->
-  <path d="M 170 140 L 220 140" stroke="#34495e" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
-  
-  <!-- Stage 1: Decoder + Normaliser -->
-  <rect x="220" y="100" width="120" height="80" rx="8" fill="url(#grad2)" stroke="#2c3e50" stroke-width="2"/>
-  <text x="280" y="130" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">Stage 1</text>
-  <text x="280" y="150" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">Decoder +</text>
-  <text x="280" y="165" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">Normaliser</text>
-  <text x="280" y="195" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#2c3e50">S1AP PDU</text>
-  <text x="280" y="210" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#2c3e50">Parsing</text>
-  
-  <!-- Arrow 1->2 -->
-  <path d="M 340 140 L 390 140" stroke="#34495e" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
-  
-  <!-- Stage 2: Correlator -->
-  <rect x="390" y="100" width="120" height="80" rx="8" fill="url(#grad3)" stroke="#2c3e50" stroke-width="2"/>
-  <text x="450" y="130" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">Stage 2</text>
-  <text x="450" y="150" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">Correlator</text>
-  <text x="450" y="195" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#2c3e50">UE Context</text>
-  <text x="450" y="210" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#2c3e50">Management</text>
-  
-  <!-- Arrow 2->3 -->
-  <path d="M 510 140 L 560 140" stroke="#34495e" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
-  
-  <!-- Stage 3: Event Engine -->
-  <rect x="560" y="100" width="120" height="80" rx="8" fill="url(#grad4)" stroke="#2c3e50" stroke-width="2"/>
-  <text x="620" y="130" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">Stage 3</text>
-  <text x="620" y="150" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">Event Engine</text>
-  <text x="620" y="195" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#2c3e50">YAML Rules</text>
-  <text x="620" y="210" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#2c3e50">Evaluation</text>
-  
-  <!-- Arrow 3->5 -->
-  <path d="M 680 140 L 730 140" stroke="#34495e" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
-  
-  <!-- Stage 5: Sinks -->
-  <rect x="630" y="250" width="120" height="80" rx="8" fill="url(#grad5)" stroke="#2c3e50" stroke-width="2"/>
-  <text x="690" y="280" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">Stage 5</text>
-  <text x="690" y="300" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">Sinks</text>
-  <text x="690" y="340" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#2c3e50">stdout • JSONL</text>
-  <text x="690" y="355" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#2c3e50">Kafka • gRPC</text>
-  
-  <!-- Arrow from Stage 3 to Stage 5 (downward) -->
-  <path d="M 620 180 L 620 250" stroke="#34495e" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
-  
-  <!-- Spool/WAL Box (below Stage 0) -->
-  <rect x="30" y="250" width="160" height="100" rx="8" fill="#ecf0f1" stroke="#34495e" stroke-width="2" stroke-dasharray="5,5"/>
-  <text x="110" y="275" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#2c3e50">Spool (WAL)</text>
-  <text x="110" y="295" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#7f8c8d">System of Record</text>
-  <text x="110" y="310" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#7f8c8d">• Append-only log</text>
-  <text x="110" y="325" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#7f8c8d">• Partitioned</text>
-  <text x="110" y="340" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#7f8c8d">• Replayable</text>
-  
-  <!-- Arrow from Stage 0 to Spool -->
-  <path d="M 110 180 L 110 250" stroke="#34495e" stroke-width="2" fill="none" stroke-dasharray="3,3"/>
-  
-  <!-- Evidence Chain (connecting stages to spool) -->
-  <text x="400" y="400" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="#2c3e50">Evidence Chain</text>
-  <text x="400" y="420" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#7f8c8d">Every event includes spool offsets for auditability and replay</text>
-  
-  <!-- Dotted lines from stages to evidence chain concept -->
-  <path d="M 280 180 L 280 240 L 400 380" stroke="#95a5a6" stroke-width="1" fill="none" stroke-dasharray="2,2" opacity="0.5"/>
-  <path d="M 450 180 L 450 240 L 400 380" stroke="#95a5a6" stroke-width="1" fill="none" stroke-dasharray="2,2" opacity="0.5"/>
-  <path d="M 620 180 L 620 240 L 400 380" stroke="#95a5a6" stroke-width="1" fill="none" stroke-dasharray="2,2" opacity="0.5"/>
-  
-  <!-- Arrow marker definition -->
-  <defs>
-    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#34495e"/>
-    </marker>
-  </defs>
-  
-  <!-- Key Features Box -->
-  <rect x="220" y="250" width="300" height="100" rx="8" fill="#ffffff" stroke="#bdc3c7" stroke-width="1"/>
-  <text x="370" y="275" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#2c3e50">Key Features</text>
-  <text x="240" y="295" font-family="Arial, sans-serif" font-size="9" fill="#2c3e50">• No-loss upgradeability</text>
-  <text x="240" y="310" font-family="Arial, sans-serif" font-size="9" fill="#2c3e50">• Transport-agnostic core</text>
-  <text x="240" y="325" font-family="Arial, sans-serif" font-size="9" fill="#2c3e50">• Declarative YAML rules</text>
-  <text x="240" y="340" font-family="Arial, sans-serif" font-size="9" fill="#2c3e50">• Deterministic replay</text>
-</svg>
+    <style>
+      .st0, .st1, .st2 {
+        fill: none;
+      }
 
+      .st3 {
+        fill: #ecf0f1;
+        stroke-dasharray: 5 5;
+      }
+
+      .st3, .st2 {
+        stroke: #34495e;
+      }
+
+      .st3, .st2, .st4, .st5, .st6, .st7, .st8 {
+        stroke-width: 2px;
+      }
+
+      .st9, .st10 {
+        font-size: 9px;
+      }
+
+      .st9, .st10, .st1, .st11, .st12, .st13, .st14, .st15, .st16, .st17 {
+        isolation: isolate;
+      }
+
+      .st9, .st10, .st11, .st15, .st16 {
+        font-family: ArialMT, Arial;
+      }
+
+      .st9, .st11, .st16 {
+        fill: #7f8c8d;
+      }
+
+      .st10, .st12, .st14, .st17 {
+        fill: #2c3e50;
+      }
+
+      .st1 {
+        opacity: .5;
+        stroke: #95a5a6;
+        stroke-dasharray: 2 2;
+      }
+
+      .st11 {
+        font-size: 10px;
+      }
+
+      .st12, .st13, .st14, .st17 {
+        font-family: Arial-BoldMT, Arial;
+        font-weight: 700;
+      }
+
+      .st12, .st15 {
+        font-size: 11px;
+      }
+
+      .st2 {
+        stroke-dasharray: 3 3;
+      }
+
+      .st4 {
+        fill: url(#linear-gradient4);
+      }
+
+      .st4, .st5, .st6, .st7, .st8 {
+        stroke: #2c3e50;
+      }
+
+      .st5 {
+        fill: url(#linear-gradient3);
+      }
+
+      .st6 {
+        fill: url(#linear-gradient1);
+      }
+
+      .st7 {
+        fill: url(#linear-gradient2);
+      }
+
+      .st13, .st15, .st18 {
+        fill: #fff;
+      }
+
+      .st13, .st17 {
+        font-size: 12px;
+      }
+
+      .st19 {
+        fill: #f8f9fa;
+      }
+
+      .st14 {
+        font-size: 24px;
+      }
+
+      .st16 {
+        font-size: 14px;
+      }
+
+      .st18 {
+        stroke: #bdc3c7;
+      }
+
+      .st8 {
+        fill: url(#linear-gradient);
+      }
+
+      .st20 {
+        fill: #34495e;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="-554.57" y1="786.88" x2="-553.57" y2="786.88" gradientTransform="translate(66571 63091) scale(120 -80)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4a90e2"/>
+      <stop offset="1" stop-color="#357abd"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient1" x1="-554.63" y1="786.88" x2="-553.63" y2="786.88" gradientTransform="translate(66741 63091) scale(120 -80)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#50c878"/>
+      <stop offset="1" stop-color="#3da85a"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient2" x1="-554.7" y1="786.88" x2="-553.7" y2="786.88" gradientTransform="translate(66911 63091) scale(120 -80)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff6b6b"/>
+      <stop offset="1" stop-color="#ee5a52"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient3" x1="-554.8" y1="786.88" x2="-553.8" y2="786.88" gradientTransform="translate(67081 63091) scale(120 -80)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffa726"/>
+      <stop offset="1" stop-color="#fb8c00"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient4" x1="-554.06" y1="788.75" x2="-553.06" y2="788.75" gradientTransform="translate(67151 63241) scale(120 -80)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ab47bc"/>
+      <stop offset="1" stop-color="#8e24aa"/>
+    </linearGradient>
+  </defs>
+  <rect class="st19" y=".85" width="800" height="500"/>
+  <text class="st14" transform="translate(212.62 30)"><tspan x="0" y="0">S1 Signal Event Engine (S1-SEE)</tspan></text>
+  <text class="st16" transform="translate(301.17 55)"><tspan x="0" y="0">Multi-Stage Processing Pipeline</tspan></text>
+  <rect class="st8" x="22.7" y="100.85" width="120" height="80" rx="8" ry="8"/>
+  <text class="st13" transform="translate(61.36 130.85)"><tspan x="0" y="0">Stage 0</tspan></text>
+  <text class="st15" transform="translate(64.66 150.85)"><tspan x="0" y="0">Ingress</tspan></text>
+  <text class="st15" transform="translate(63.74 165.85)"><tspan x="0" y="0">Spooler</tspan></text>
+  <text class="st10" transform="translate(55.11 195.85)"><tspan x="0" y="0">gRPC • Kafka</tspan></text>
+  <text class="st10" transform="translate(53.79 210.85)"><tspan x="0" y="0">AMQP • NATS</tspan></text>
+  <path class="st0" d=""/>
+  <polygon class="st20" points="152.12 131.85 182.12 140.85 152.12 149.85 152.12 131.85"/>
+  <path class="st20" d="M179.12,140.85" marker-end="url(#arrowhead)"/>
+  <rect class="st6" x="185.93" y="100.85" width="120" height="80" rx="8" ry="8"/>
+  <text class="st13" transform="translate(224.59 130.85)"><tspan x="0" y="0">Stage 1</tspan></text>
+  <text class="st15" transform="translate(220.4 150.85)"><tspan x="0" y="0">Decoder +</tspan></text>
+  <text class="st15" transform="translate(219.34 165.85)"><tspan x="0" y="0">Normaliser</tspan></text>
+  <text class="st10" transform="translate(223.75 195.85)"><tspan x="0" y="0">S1AP PDU</tspan></text>
+  <text class="st10" transform="translate(232.26 210.85)"><tspan x="0" y="0">Parsing</tspan></text>
+  <path class="st0" d=""/>
+  <polygon class="st20" points="312.86 131.66 342.86 140.66 312.86 149.66 312.86 131.66"/>
+  <path class="st20" d="M335.59,140.85" marker-end="url(#arrowhead)"/>
+  <rect class="st7" x="347.11" y="100.85" width="120" height="80" rx="8" ry="8"/>
+  <text class="st13" transform="translate(385.76 130.85)"><tspan x="0" y="0">Stage 2</tspan></text>
+  <text class="st15" transform="translate(382.65 150.85)"><tspan x="0" y="0">Correlator</tspan></text>
+  <text class="st10" transform="translate(384.1 195.85)"><tspan x="0" y="0">UE Context</tspan></text>
+  <text class="st10" transform="translate(382.11 210.85)"><tspan x="0" y="0">Management</tspan></text>
+  <path class="st0" d=""/>
+  <polygon class="st20" points="472.35 132.5 502.35 141.5 472.35 150.5 472.35 132.5"/>
+  <path class="st20" d="M505.59,140.85" marker-end="url(#arrowhead)"/>
+  <rect class="st5" x="505.59" y="100.85" width="120" height="80" rx="8" ry="8"/>
+  <text class="st13" transform="translate(544.25 130.85)"><tspan x="0" y="0">Stage 3</tspan></text>
+  <text class="st15" transform="translate(532.88 150.85)"><tspan x="0" y="0">Event Engine</tspan></text>
+  <text class="st10" transform="translate(541.09 195.85)"><tspan x="0" y="0">YAML Rules</tspan></text>
+  <text class="st10" transform="translate(544.67 210.85)"><tspan x="0" y="0">Evaluation</tspan></text>
+  <path class="st0" d=""/>
+  <path class="st20" d="M726.81,141.5" marker-end="url(#arrowhead)"/>
+  <rect class="st4" x="664.08" y="100.66" width="120" height="80" rx="8" ry="8"/>
+  <text class="st13" transform="translate(702.74 130.66)"><tspan x="0" y="0">Stage 5</tspan></text>
+  <text class="st15" transform="translate(710.63 150.66)"><tspan x="0" y="0">Sinks</tspan></text>
+  <text class="st10" transform="translate(693.24 190.66)"><tspan x="0" y="0">stdout • JSONL</tspan></text>
+  <text class="st10" transform="translate(696.5 205.66)"><tspan x="0" y="0">Kafka • gRPC</tspan></text>
+  <path class="st0" d=""/>
+  <path class="st20" d="M657.28,99.15" marker-end="url(#arrowhead)"/>
+  <rect class="st3" x="30" y="250" width="160" height="100" rx="8" ry="8"/>
+  <text class="st17" transform="translate(74.34 275)"><tspan x="0" y="0">Spool (WAL)</tspan></text>
+  <text class="st11" transform="translate(70.26 295)"><tspan x="0" y="0">System of Record</tspan></text>
+  <text class="st9" transform="translate(74.9 310)"><tspan x="0" y="0">• Append-only log</tspan></text>
+  <text class="st9" transform="translate(85.66 325)"><tspan x="0" y="0">• Partitioned</tspan></text>
+  <text class="st9" transform="translate(84.66 340)"><tspan x="0" y="0">• Replayable</tspan></text>
+  <path class="st2" d="M82.7,180.85v70"/>
+  <text class="st12" transform="translate(347.99 301.89)"><tspan x="0" y="0">Evidence Chain</tspan></text>
+  <text class="st11" transform="translate(256.46 321.89)"><tspan x="0" y="0">Every event includes spool offsets for auditability and replay</tspan></text>
+  <path class="st1" d="M245.93,180.85v32.06l140.25,74.81"/>
+  <path class="st1" d="M407.11,180.85v32.06l-20.92,74.81"/>
+  <path class="st1" d="M565.59,180.85v32.06l-179.41,74.81"/>
+  <rect class="st18" x="565.59" y="250" width="214.56" height="100" rx="8" ry="8"/>
+  <text class="st17" transform="translate(630.87 275)"><tspan x="0" y="0">Key Features</tspan></text>
+  <text class="st10" transform="translate(585.59 295)"><tspan x="0" y="0">• No-loss upgradeability</tspan></text>
+  <text class="st10" transform="translate(585.59 310)"><tspan x="0" y="0">• Transport-agnostic core</tspan></text>
+  <text class="st10" transform="translate(585.59 325)"><tspan x="0" y="0">• Declarative YAML rules</tspan></text>
+  <text class="st10" transform="translate(585.59 340)"><tspan x="0" y="0">• Deterministic replay</tspan></text>
+  <polygon class="st20" points="629.84 132.5 659.84 141.5 629.84 150.5 629.84 132.5"/>
+</svg>
