@@ -1,5 +1,7 @@
 # S1 Signal Event Engine (S1-SEE)
 
+![S1-SEE Architecture](docs/architecture-diagram.svg)
+
 A production-oriented prototype for ingesting, processing, and analyzing LTE S1AP Protocol Data Units (PDUs) with a modular, replayable real-time pipeline.
 
 **Repository**: [https://github.com/melrosenetworks/S1-SEE](https://github.com/melrosenetworks/S1-SEE)
