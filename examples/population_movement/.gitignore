@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.db
+*.db-journal
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# Output files
+*.html
+sample_events.jsonl
+population_movement.html
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
